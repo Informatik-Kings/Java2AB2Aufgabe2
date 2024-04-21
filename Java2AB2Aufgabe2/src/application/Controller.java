@@ -42,7 +42,6 @@ public class Controller {
        * Konstruktor für den EventHandler.
        *
        * @param stackPane Auf welcher Stackpane die Elemente gekoppelt werden sollen.
-       * @param label Label, welches den eigentlich Text beinhaltet.
        * @param text Text, welcher auf der Schicht angezeigt werden soll.
        */
       public Listener(StackPane stackPane, String text)
