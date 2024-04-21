@@ -18,7 +18,7 @@ import javafx.stage.Stage;
  *
  * @author Markus Suchalla, Cheng-Fu Ye, Dominik Schwabe
  */
-public class Main extends Application
+public class MainSceneBuilder extends Application
 {
 
    /**
@@ -43,10 +43,10 @@ public class Main extends Application
       {
          if(primaryStage == null) 
          {
-            throw new NullPointerException("Main.start(Stage primaryStage): Ungültige Null-Referenz zu PrimaryStage!");
+            throw new NullPointerException("MainSceneBuilder.start(Stage primaryStage): Ungültige Null-Referenz zu PrimaryStage!");
          }
 
-         BorderPane root = (BorderPane) FXMLLoader.load(Main.class.getResource("/CardBorderPane.fxml"));
+         BorderPane root = (BorderPane) FXMLLoader.load(MainSceneBuilder.class.getResource("/CardBorderPane.fxml"));
          Scene scene = new Scene(root);
          scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
          primaryStage.setScene(scene);
