@@ -102,21 +102,18 @@ public class CardBorderPane extends BorderPane
       VBox vbox = new VBox();
       StackPane stackPane = new StackPane();
 
-      Button button1 = new Button("Button 1");
-      Listener listener1 = new Listener(stackPane,"Knopf 1");
-      button1.setOnAction(listener1);
-      vbox.getChildren().add(button1);
-      button1.fire(); //button1 wird gefeuert, damit das passende Label auf der Stackpane sichtbar ist.
+      Button button = new Button("Button 1");
+      button.setOnAction(new Listener(stackPane,"Knopf 1"));
+      vbox.getChildren().add(button);
+      button.fire(); //button1 wird gefeuert, damit das passende Label auf der Stackpane sichtbar ist.
 
-      Button button2 = new Button("Button 2");
-      Listener listener2 = new Listener(stackPane,"Knopf 2");
-      button2.setOnAction(listener2);
-      vbox.getChildren().add(button2);
+      button = new Button("Button 2");
+      button.setOnAction(new Listener(stackPane,"Knopf 2"));
+      vbox.getChildren().add(button);
 
-      Button button3 = new Button("Button 3");
-      Listener listener3 = new Listener(stackPane,"Knopf 3");
-      button3.setOnAction(listener3);
-      vbox.getChildren().add(button3);
+      button = new Button("Button 3");
+      button.setOnAction(new Listener(stackPane,"Knopf 3"));
+      vbox.getChildren().add(button);
 
       this.setLeft(vbox);
       this.setCenter(stackPane);
