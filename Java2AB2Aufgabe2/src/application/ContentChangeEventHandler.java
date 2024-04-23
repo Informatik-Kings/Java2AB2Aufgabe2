@@ -12,13 +12,13 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.StackPane;
 
 /**
- * Innere Klasse als EventHandler für die Knöpfe.
+ * Klasse als EventHandler für die Knöpfe zum Inhaltswechsel einer StackPane.
  *
  * Verwaltet die StackPane.
  *
  * @author Markus Suchalla, Cheng-Fu Ye, Dominik Schwabe
  */
-public class Listener implements EventHandler<ActionEvent> {
+public class ContentChangeEventHandler implements EventHandler<ActionEvent> {
 
    private StackPane pane;
    private Label label;
@@ -26,18 +26,18 @@ public class Listener implements EventHandler<ActionEvent> {
 
    /**
     * 
-    * Konstruktor für den EventHandler.
+    * Konstruktor für den ContentChangeEventHandler.
     *
     * @param stackPane Auf welcher Stackpane die Elemente gekoppelt werden sollen.
     * @param text Text, welcher auf der Schicht angezeigt werden soll.
     */
-   public Listener(StackPane stackPane, String text)
+   public ContentChangeEventHandler(StackPane stackPane, String text)
    {
       if(stackPane == null) {
-         throw new NullPointerException("Listener(StackPane stackPane, String text): Ungültige Null-Referenz zu stackPane!");
+         throw new NullPointerException("ContentChangeEventHandler(StackPane stackPane, String text): Ungültige Null-Referenz zu stackPane!");
       }
       if(text == null) {
-         throw new NullPointerException("Listener(StackPane stackPane, String text): Ungültige Null-Referenz zu text!");
+         throw new NullPointerException("ContentChangeEventHandler(StackPane stackPane, String text): Ungültige Null-Referenz zu text!");
       }    
       pane=stackPane;
       this.text = text;

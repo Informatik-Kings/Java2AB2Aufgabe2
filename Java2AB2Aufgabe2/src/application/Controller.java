@@ -44,12 +44,9 @@ public class Controller {
         assert button2 != null : "fx:id=\"button2\" was not injected: check your FXML file 'CardBorderPane.fxml'.";
         assert button3 != null : "fx:id=\"button3\" was not injected: check your FXML file 'CardBorderPane.fxml'.";
         assert stackPane != null : "fx:id=\"stackPane\" was not injected: check your FXML file 'CardBorderPane.fxml'.";
-        Listener listener1 = new Listener(stackPane,"Knopf 1");
-        button1.setOnAction(listener1);
-        Listener listener2 = new Listener(stackPane,"Knopf 2");
-        button2.setOnAction(listener2);
-        Listener listener3 = new Listener(stackPane,"Knopf 3");
-        button3.setOnAction(listener3);
+        button1.setOnAction(new ContentChangeEventHandler(stackPane,"Knopf 1"));
+        button2.setOnAction(new ContentChangeEventHandler(stackPane,"Knopf 2"));
+        button3.setOnAction(new ContentChangeEventHandler(stackPane,"Knopf 3"));
         button1.fire();
     }
 
