@@ -3,7 +3,7 @@ package application;
 import java.io.File;
 import java.io.PrintStream;
 
-import exception.InvalidSourceException;
+import exception.*;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -37,9 +37,8 @@ public class MainPureJavaFX extends Application
     * Initialisert die primaryStage mit einer {@link CardBorderPane}
     */
    @Override
-   public void start(Stage primaryStage) throws Exception
+   public void start(Stage primaryStage) throws InvalidSourceException
    {
-      primaryStage = null;
       try
       {
          if(primaryStage == null) 
@@ -54,7 +53,7 @@ public class MainPureJavaFX extends Application
          primaryStage.show();
 
       }
-      catch (Exception e)
+      catch (InvalidSourceException e)
       {
          Alert alert =
                new Alert(AlertType.ERROR, e.getMessage(), ButtonType.OK);

@@ -1,6 +1,7 @@
 package application;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.PrintStream;
 
 import exception.InvalidSourceException;
@@ -54,7 +55,7 @@ public class MainSceneBuilder extends Application
          primaryStage.show();
 
       }
-      catch (Exception e)
+      catch (InvalidSourceException | IOException e)
       {
          Alert alert =
                new Alert(AlertType.ERROR, e.getMessage(), ButtonType.OK);
