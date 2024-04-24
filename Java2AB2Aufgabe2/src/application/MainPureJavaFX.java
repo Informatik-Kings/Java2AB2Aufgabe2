@@ -3,6 +3,7 @@ package application;
 import java.io.File;
 import java.io.PrintStream;
 
+import exception.InvalidSourceException;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -38,11 +39,12 @@ public class MainPureJavaFX extends Application
    @Override
    public void start(Stage primaryStage) throws Exception
    {
+      primaryStage = null;
       try
       {
          if(primaryStage == null) 
          {
-            throw new NullPointerException("MainPureJavaFX.start(Stage primaryStage): Ungültige Null-Referenz zu PrimaryStage!");
+            throw new InvalidSourceException("MainPureJavaFX.start(Stage primaryStage): Ungültige Null-Referenz zu PrimaryStage!");
          }
 
          BorderPane root = new CardBorderPane();

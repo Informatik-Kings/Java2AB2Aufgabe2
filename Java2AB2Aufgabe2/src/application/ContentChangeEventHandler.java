@@ -3,6 +3,7 @@
  */
 package application;
 
+import exception.InvalidSourceException;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
@@ -31,13 +32,13 @@ public class ContentChangeEventHandler implements EventHandler<ActionEvent> {
     * @param stackPane Auf welcher Stackpane die Elemente gekoppelt werden sollen.
     * @param text Text, welcher auf der Schicht angezeigt werden soll.
     */
-   public ContentChangeEventHandler(StackPane stackPane, String text)
+   public ContentChangeEventHandler(StackPane stackPane, String text) throws InvalidSourceException
    {
       if(stackPane == null) {
-         throw new NullPointerException("ContentChangeEventHandler(StackPane stackPane, String text): Ungültige Null-Referenz zu stackPane!");
+         throw new InvalidSourceException("ContentChangeEventHandler(StackPane stackPane, String text): Ungültige Null-Referenz zu stackPane!");
       }
       if(text == null) {
-         throw new NullPointerException("ContentChangeEventHandler(StackPane stackPane, String text): Ungültige Null-Referenz zu text!");
+         throw new InvalidSourceException("ContentChangeEventHandler(StackPane stackPane, String text): Ungültige Null-Referenz zu text!");
       }    
       pane=stackPane;
       this.text = text;

@@ -3,6 +3,7 @@ package application;
 import java.io.File;
 import java.io.PrintStream;
 
+import exception.InvalidSourceException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -37,13 +38,13 @@ public class MainSceneBuilder extends Application
     * Initialisert die primaryStage mithilfe des FXMLLoaders mit der CardBorderPane.fxml
     */
    @Override
-   public void start(Stage primaryStage) throws Exception
+   public void start(Stage primaryStage) throws InvalidSourceException
    {
       try
       {
          if(primaryStage == null) 
          {
-            throw new NullPointerException("MainSceneBuilder.start(Stage primaryStage): Ungültige Null-Referenz zu PrimaryStage!");
+            throw new InvalidSourceException("MainSceneBuilder.start(Stage primaryStage): Ungültige Null-Referenz zu PrimaryStage!");
          }
 
          BorderPane root = (BorderPane) FXMLLoader.load(MainSceneBuilder.class.getResource("/CardBorderPane.fxml"));

@@ -7,6 +7,7 @@ package application;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import exception.InvalidSourceException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
@@ -39,7 +40,7 @@ public class Controller {
     private StackPane stackPane; // Value injected by FXMLLoader
 
     @FXML // This method is called by the FXMLLoader when initialization is complete
-    void initialize() {
+    void initialize() throws InvalidSourceException {
         assert button1 != null : "fx:id=\"button1\" was not injected: check your FXML file 'CardBorderPane.fxml'.";
         assert button2 != null : "fx:id=\"button2\" was not injected: check your FXML file 'CardBorderPane.fxml'.";
         assert button3 != null : "fx:id=\"button3\" was not injected: check your FXML file 'CardBorderPane.fxml'.";
