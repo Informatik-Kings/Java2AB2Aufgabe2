@@ -71,7 +71,7 @@ public class ContentChangeEventHandler implements EventHandler<ActionEvent> {
       }catch(Exception e)
       {
          Alert alert =
-               new Alert(AlertType.ERROR, "Fehler nach dem Drücken des Buttons", ButtonType.OK);
+               new Alert(AlertType.ERROR, "Fehler nach dem Drücken des Buttons. \n Senden sie den Log an den Entwickler.", ButtonType.OK);
          alert.setResizable(true);
          alert.showAndWait();
       }
