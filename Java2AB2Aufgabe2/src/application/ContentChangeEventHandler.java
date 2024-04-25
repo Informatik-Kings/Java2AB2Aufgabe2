@@ -3,7 +3,11 @@
  */
 package application;
 
+import java.io.File;
+import java.io.PrintStream;
+
 import exception.InvalidSourceException;
+import exception.LoggerFX;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
@@ -59,7 +63,7 @@ public class ContentChangeEventHandler implements EventHandler<ActionEvent> {
          {
             label = new Label(text);
             label.setMinSize(200, 100);  
-            pane.getChildren().add(label);
+            pane.getChildren().addLast(label);
          }         
          else
          { 
@@ -74,6 +78,7 @@ public class ContentChangeEventHandler implements EventHandler<ActionEvent> {
                new Alert(AlertType.ERROR, "Fehler nach dem Drücken des Buttons. \n Senden sie den Log an den Entwickler.", ButtonType.OK);
          alert.setResizable(true);
          alert.showAndWait();
+         LoggerFX.log(e, getClass().getSimpleName());
       }
 
    }

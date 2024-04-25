@@ -41,6 +41,7 @@ public class MainPureJavaFX extends Application
    {
       try
       {
+         //primaryStage = null; //Zu testzwecken
          if(primaryStage == null) 
          {
             throw new InvalidSourceException("MainPureJavaFX.start(Stage primaryStage): Ungültige Null-Referenz zu PrimaryStage!");
@@ -56,23 +57,10 @@ public class MainPureJavaFX extends Application
       catch (InvalidSourceException e)
       {
          Alert alert =
-               new Alert(AlertType.ERROR, e.getMessage(), ButtonType.OK);
+               new Alert(AlertType.ERROR, "Unbekannter Fehler \nSenden Sie den Log an den Entwickler!", ButtonType.OK);
          alert.setResizable(true);
          alert.showAndWait();
-         try 
-         {
-            String logFile = System.getProperty("user.home") +
-                  File.separatorChar + getClass().getSimpleName() + ".log";
-            e.printStackTrace(new PrintStream(logFile));
-            alert.setAlertType(AlertType.INFORMATION);
-            alert.setContentText("Log-Datei unter " + logFile + " erstellt!");
-            alert.showAndWait();
-         }
-         catch(Exception e1)
-         {
-            alert.setContentText("Fehler beim Erstellen der Log-Datei!");
-            alert.showAndWait();
-         }
+         LoggerFX.log(e, getClass().getSimpleName());
       }
    }
 }

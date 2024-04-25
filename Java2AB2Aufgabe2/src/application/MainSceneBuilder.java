@@ -1,10 +1,9 @@
 package application;
 
-import java.io.File;
 import java.io.IOException;
-import java.io.PrintStream;
 
 import exception.InvalidSourceException;
+import exception.LoggerFX;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -58,23 +57,10 @@ public class MainSceneBuilder extends Application
       catch (InvalidSourceException | IOException e)
       {
          Alert alert =
-               new Alert(AlertType.ERROR, e.getMessage(), ButtonType.OK);
+               new Alert(AlertType.ERROR, "Unbekannter Fehler \nSenden Sie den Log an den Entwickler!", ButtonType.OK);
          alert.setResizable(true);
          alert.showAndWait();
-         try 
-         {
-            String logFile = System.getProperty("user.home") +
-                  File.separatorChar + getClass().getSimpleName() + ".log";
-            e.printStackTrace(new PrintStream(logFile));
-            alert.setAlertType(AlertType.INFORMATION);
-            alert.setContentText("Log-Datei unter " + logFile + " erstellt!");
-            alert.showAndWait();
-         }
-         catch(Exception e1)
-         {
-            alert.setContentText("Fehler beim Erstellen der Log-Datei!");
-            alert.showAndWait();
-         }
+         LoggerFX.log(e, getClass().getSimpleName());
       }
    }
 }
