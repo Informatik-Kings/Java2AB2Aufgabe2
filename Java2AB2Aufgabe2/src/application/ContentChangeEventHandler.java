@@ -55,18 +55,18 @@ public class ContentChangeEventHandler implements EventHandler<ActionEvent> {
          if(!pane.getChildren().isEmpty())
             pane.getChildren().getLast().setVisible(false);
 
-         if(label==null)
+         if(label==null)    
          {
-            label = new Label(text);
+            label = new Label(text);    
             label.setMinSize(200, 100);  
-            pane.getChildren().add(label);
+            pane.getChildren().addLast(label);  
          }         
          else
          { 
-            pane.getChildren().remove(label);
-            pane.getChildren().addLast(label);
-         }
-         pane.getChildren().getLast().setVisible(true);
+            pane.getChildren().remove(label);   
+            pane.getChildren().addLast(label);  
+         }  
+         pane.getChildren().getLast().setVisible(true); 
 
       }catch(Exception e)
       {
