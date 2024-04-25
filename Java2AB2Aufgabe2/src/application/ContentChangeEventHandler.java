@@ -31,8 +31,9 @@ public class ContentChangeEventHandler implements EventHandler<ActionEvent> {
     *
     * @param stackPane Auf welcher Stackpane die Elemente gekoppelt werden sollen.
     * @param text Text, welcher auf der Schicht angezeigt werden soll.
+    * @throws InvalidSourceException 
     */
-   public ContentChangeEventHandler(StackPane stackPane, String text) throws InvalidSourceException
+   public ContentChangeEventHandler(StackPane stackPane, String text) throws InvalidSourceException 
    {
       if(stackPane == null) {
          throw new InvalidSourceException("ContentChangeEventHandler(StackPane stackPane, String text): Ungültige Null-Referenz zu stackPane!");
@@ -58,18 +59,14 @@ public class ContentChangeEventHandler implements EventHandler<ActionEvent> {
          {
             label = new Label(text);
             label.setMinSize(200, 100);  
-            
+            pane.getChildren().add(label);
          }         
-         if(pane.getChildren().contains(label))
+         else
          { 
             pane.getChildren().remove(label);
+            pane.getChildren().addLast(label);
          }
-
-         pane.getChildren().addLast(label);
-
          pane.getChildren().getLast().setVisible(true);
-
-
 
       }catch(Exception e)
       {
